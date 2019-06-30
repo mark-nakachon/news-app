@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 class Channels extends Component {
   constructor(props) {
     super(props);
@@ -19,14 +20,17 @@ class Channels extends Component {
     if (channels != null) {
       return (
         <div>
+          <h4 class="text-center text-dark">New's Channels</h4>
           {channels.map(channel => (
-            <div class="card mb-3">
-              <div class="card-header">{channel.name}</div>
-              <div class="card-body">
-                <h5 class="card-title">{channel.description}</h5>
-                <p class="text-primary">{channel.category}</p>
+            <Link to={`/channel/${channel.id}`}>
+              <div class="card mb-3">
+                <div class="card-header">{channel.name}</div>
+                <div class="card-body">
+                  <h5 class="card-title">{channel.description}</h5>
+                  <p class="text-primary">{channel.category}</p>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       );
