@@ -6,6 +6,7 @@ export function updateSearchQuery(query){
  this.setState({searchQuery:query});
 }
 class Channel extends Component {
+  _ismounted = false;
   constructor(props) {
     super(props);
     this.state = { ChannelData: null,searchQuery:null };
@@ -13,23 +14,31 @@ class Channel extends Component {
   }
   componentDidMount() {
     const { id } = this.props.match.params;
-
+    this._ismounted = true;
     fetch(
       `https://newsapi.org/v2/everything?sources=${id}&pageSize=100&apiKey=0279b927613e40debd2a3f4264057868`
     )
       .then(response => response.json())
-      .then(data => this.setState({ ChannelData: data.articles }));
+      .then(data =>
+        {
+        if(this._ismounted){
+        this.setState({ ChannelData: data.articles })
+        }});
   }
   componentDidUpdate(prevProps,prevState){
     const { id } = this.props.match.params;
+    this._ismounted = true;
       if(prevState.searchQuery!==this.state.searchQuery){
         fetch(
       `https://newsapi.org/v2/everything?q=${this.state.searchQuery}&sources=${id}&apiKey=0279b927613e40debd2a3f4264057868`
     )
       .then(response => response.json())
-      .then(data => this.setState({ ChannelData: data.articles }));
+      .then(data =>{if(this._ismounted){this.setState({ ChannelData: data.articles })}});
      // console.log(this.state);
         }
+  }
+  componentWillUnmount(){
+    this._ismounted = false
   }
 
   render() {

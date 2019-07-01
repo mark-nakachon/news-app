@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Loading from './Loading';
 class Channels extends Component {
+  _isMounted = false;
   constructor(props) {
     super(props);
     this.state = {
@@ -9,11 +10,18 @@ class Channels extends Component {
     };
   }
   componentDidMount() {
+    this._isMounted = true;
     fetch(
       "https://newsapi.org/v2/sources?apiKey=0279b927613e40debd2a3f4264057868"
     )
       .then(response => response.json())
-      .then(data => this.setState({ channels: data.sources }));
+      .then(data =>
+        {
+          if(this._isMounted){this.setState({ channels: data.sources })}
+        } );
+  }
+  componentWillUnmount(){
+    this._isMounted = false;
   }
   render() {
     const { channels } = this.state;
