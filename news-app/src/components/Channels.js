@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Loading from './Loading';
 class Channels extends Component {
   constructor(props) {
     super(props);
@@ -20,22 +21,27 @@ class Channels extends Component {
     if (channels != null) {
       return (
         <div>
-          <h4 class="text-center text-dark">New's Channels</h4>
+          <h4 class="text-center text-light">New's Channels</h4>
+          <div class="container">
           {channels.map(channel => (
-            <Link to={`/channel/${channel.id}`}>
-              <div class="card mb-3">
-                <div class="card-header">{channel.name}</div>
+              <div class="card bg-light rounded p-1 mb-4">
+                <Link to={`/channel/${channel.id}`} style={{textDecoration:'None'}}>
+                <div class="card-header d-flex justify-content-between bg-dark">
+                  <h5 class="text-light">{channel.name}</h5>
+                  <h5 class="text-danger"><span class="text-info mr-2">Category:</span>{channel.category.charAt(0).toUpperCase()+channel.category.slice(1)}</h5>
+                  </div>
                 <div class="card-body">
-                  <h5 class="card-title">{channel.description}</h5>
-                  <p class="text-primary">{channel.category}</p>
+                  <h5 class="card-title text-dark">{channel.description}</h5>
+
                 </div>
+                </Link>
               </div>
-            </Link>
           ))}
+          </div>
         </div>
       );
     } else {
-      return "Loading";
+      return (<div class="text-center"><Loading/></div>);
     }
   }
 }

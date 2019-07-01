@@ -4,11 +4,14 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "bootswatch": "^4.3.1",
     "font-awesome": "^4.7.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-loader-spinner": "^2.3.0",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "remove": "^0.1.5"
   },
   "scripts": {
     "start": "react-scripts start",

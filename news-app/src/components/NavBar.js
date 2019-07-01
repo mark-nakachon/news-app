@@ -5,7 +5,7 @@ class NavBar extends Component {
   render() {
     return (
       <React.Fragment>
-        <nav className="navbar navbar-expand-md bg-success navbar-light">
+        <nav className="navbar navbar-expand-md navbar-dark">
           <div className="container">
             <Link to="/" className="navbar-brand">
               News App

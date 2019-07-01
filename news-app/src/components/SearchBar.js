@@ -17,9 +17,9 @@ class SearchBar extends Component {
       <div class="container mb-3">
          <div class="input-group input-group-lg">
          <div class="input-group-btn mr-1">
-            <button class="btn btn-default bg-primary" type="submit"><i class="fas fa-2x fa fa-search"></i></button>
+            <button class="btn btn-default bg-light" type="submit"><i class="fas fa-2x fa fa-search"></i></button>
         </div>
-            <input type="text" class="form-control" placeholder="Search" onChange={this.searchQuery}/>
+            <input type="text" class="form-control bg-light" placeholder="Search" onChange={this.searchQuery}/>
         </div>
      </div>
       </React.Fragment>
