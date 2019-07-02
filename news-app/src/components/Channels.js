@@ -8,7 +8,6 @@ export function filterByCategory(query){
     console.log(query);
 }
 class Channels extends Component {
-  _isMounted = false;
   constructor(props) {
     super(props);
     this.state = {
@@ -17,17 +16,21 @@ class Channels extends Component {
       filteredChannels:null
     };
     filterByCategory = filterByCategory.bind(this);
+    this.abortController = new AbortController();
   }
   componentDidMount() {
-    this._isMounted = true;
     fetch(
-      "https://newsapi.org/v2/sources?apiKey=0279b927613e40debd2a3f4264057868"
+      "https://newsapi.org/v2/sources?apiKey=0279b927613e40debd2a3f4264057868",
+      {signal:this.abortController.signal}
     )
       .then(response => response.json())
       .then(data =>
         {
-          if(this._isMounted){this.setState({ channels: data.sources })}
-        } );
+          this.setState({ channels: data.sources })
+        } )
+        .catch(err=>{
+          console.log(err);
+        });
   }
   componentDidUpdate(prevProps,prevState){
       if(prevState.category !== this.state.category){
@@ -42,7 +45,7 @@ class Channels extends Component {
   }
 
   componentWillUnmount(){
-    this._isMounted = false;
+
   }
   render() {
     const { channels,filteredChannels } = this.state;
@@ -61,7 +64,6 @@ class Channels extends Component {
                   </div>
                 <div class="card-body">
                   <h5 class="card-title text-dark">{channel.description}</h5>
-
                 </div>
                 </Link>
               </div>

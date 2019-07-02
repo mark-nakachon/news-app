@@ -4,7 +4,7 @@ export default class Loading extends React.Component {
     render() {
      return(
       <Loader
-         type="Triangle"
+         type="TailSpin"
          color="#00BFFF"
          height="300"
          width="300"
