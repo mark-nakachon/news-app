@@ -49,10 +49,9 @@ class Channels extends Component {
     console.log(channels);
     if(filteredChannels!==null){
            return (
-        <div>
+        <div class="container">
           <h4 class="text-center text-light">New's Channels</h4>
           <Dropdown />
-          <div class="container">
           {filteredChannels.map(channel => (
               <div class="card bg-light rounded p-1 mb-4">
                 <Link to={`/channel/${channel.id}`} style={{textDecoration:'None'}}>
@@ -68,7 +67,6 @@ class Channels extends Component {
               </div>
           ))}
           </div>
-        </div>
       );
     }
     else if (channels !== null) {
