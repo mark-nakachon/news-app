@@ -13,6 +13,7 @@ export default class Dropdown extends React.Component {
     }
     render() {
      return(
+         <div class="container">
          <select class="browser-default custom-select custom-select-lg mb-3" onChange={this.category}>
             <option value="business">Business</option>
             <option value="entertainment">Entertainment</option>
@@ -22,6 +23,7 @@ export default class Dropdown extends React.Component {
             <option value="sports">Sports</option>
             <option value="technology">Technology</option>
         </select>
+        </div>
      );
     }
  }
