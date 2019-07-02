@@ -12,6 +12,11 @@ class Channel extends Component {
     this.state = { ChannelData: null,searchQuery:null };
     updateSearchQuery = updateSearchQuery.bind(this);
   }
+    myStyle = {
+        cardhover:{
+            backgroundColor:"red"
+        }
+  }
   componentDidMount() {
     const { id } = this.props.match.params;
     this._ismounted = true;
@@ -52,7 +57,7 @@ class Channel extends Component {
             <div class="row">
               {ChannelData.map(article => (
                 <div class="col-md-4">
-                  <div class="card h-100 bg-dark rounded p-1">
+                  <div class="card card-hover h-100 bg-dark rounded p-1" style={{myStyle}}>
                     <img class="card-img-top" src={article.urlToImage} />
                     <div class="card-body bg-light">
                       <h5 class="card-title text-dark">{article.title}</h5>
