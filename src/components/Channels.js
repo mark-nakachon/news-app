@@ -36,7 +36,7 @@ class Channels extends Component {
       if(prevState.category !== this.state.category){
 
       const filteredData = this.state.channels.filter((obj)=>{
-          if (obj.category == this.state.category){
+          if (obj.category === this.state.category){
               return true;
           }
       });
@@ -52,18 +52,18 @@ class Channels extends Component {
     console.log(channels);
     if(filteredChannels!==null){
            return (
-        <div class="container">
-          <h4 class="text-center text-light">New's Channels</h4>
+        <div className="container">
+          <h4 className="text-center text-light">New's Channels</h4>
           <Dropdown />
           {filteredChannels.map(channel => (
-              <div class="card bg-light rounded p-1 mb-4">
+              <div className="card bg-light rounded p-1 mb-4">
                 <Link to={`/channel/${channel.id}`} style={{textDecoration:'None'}}>
-                <div class="card-header d-flex justify-content-between bg-dark">
-                  <h5 class="text-light">{channel.name}</h5>
-                  <h5 class="text-danger"><span class="text-info mr-2">Category:</span>{channel.category.charAt(0).toUpperCase()+channel.category.slice(1)}</h5>
+                <div className="card-header d-flex justify-content-between bg-dark">
+                  <h5 className="text-light">{channel.name}</h5>
+                  <h5 className="text-danger"><span className="text-info mr-2">Category:</span>{channel.category.charAt(0).toUpperCase()+channel.category.slice(1)}</h5>
                   </div>
-                <div class="card-body">
-                  <h5 class="card-title text-dark">{channel.description}</h5>
+                <div className="card-body">
+                  <h5 className="card-title text-dark">{channel.description}</h5>
                 </div>
                 </Link>
               </div>
@@ -74,18 +74,18 @@ class Channels extends Component {
     else if (channels !== null) {
       return (
         <div>
-          <h4 class="text-center text-light">New's Channels</h4>
+          <h4 className="text-center text-light">New's Channels</h4>
           <Dropdown />
-          <div class="container">
+          <div className="container">
           {channels.map(channel => (
-              <div class="card bg-light rounded p-1 mb-4">
+              <div key = {channel.id} className="card bg-light rounded p-1 mb-4">
                 <Link to={`/channel/${channel.id}`} style={{textDecoration:'None'}}>
-                <div class="card-header d-flex justify-content-between bg-dark">
-                  <h5 class="text-light">{channel.name}</h5>
-                  <h5 class="text-danger"><span class="text-info mr-2">Category:</span>{channel.category.charAt(0).toUpperCase()+channel.category.slice(1)}</h5>
+                <div className="card-header d-flex justify-content-between bg-dark">
+                  <h5 className="text-light">{channel.name}</h5>
+                  <h5 className="text-danger"><span className="text-info mr-2">Category:</span>{channel.category.charAt(0).toUpperCase()+channel.category.slice(1)}</h5>
                   </div>
-                <div class="card-body">
-                  <h5 class="card-title text-dark">{channel.description}</h5>
+                <div className="card-body">
+                  <h5 className="card-title text-dark">{channel.description}</h5>
 
                 </div>
                 </Link>
@@ -95,7 +95,7 @@ class Channels extends Component {
         </div>
       );
     } else {
-      return (<div class="text-center"><Loading/></div>);
+      return (<div className="text-center"><Loading/></div>);
     }
   }
 }

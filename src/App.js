@@ -2,7 +2,7 @@ import React from "react";
 import NavBar from "./components/NavBar";
 import Channels from "./components/Channels";
 import Channel from "./components/Channel";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route} from "react-router-dom";
 function App() {
   return (
     <div className="App">

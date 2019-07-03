@@ -13,9 +13,9 @@ export default class Dropdown extends React.Component {
     }
     render() {
      return(
-         <div class="container">
+         <div className="container">
          <h4>Filter by Criteria</h4>
-         <select class="browser-default custom-select custom-select-lg mb-3" onChange={this.category}>
+         <select className="browser-default custom-select custom-select-lg mb-3" onChange={this.category}>
             <option value="business">Business</option>
             <option value="entertainment">Entertainment</option>
             <option value="general">General</option>

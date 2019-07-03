@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import {updateSearchQuery} from './Channel'
 class SearchBar extends Component {
   constructor(props){

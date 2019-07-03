@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import SearchBar from './SearchBar';
 import Loading from './Loading';
 import '../Hover.css'
