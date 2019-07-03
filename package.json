@@ -6,7 +6,6 @@
     "bootstrap": "^4.3.1",
     "bootswatch": "^4.3.1",
     "font-awesome": "^4.7.0",
-    "gh-pages": "^2.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-loader-spinner": "^2.3.0",
@@ -15,8 +14,6 @@
     "remove": "^0.1.5"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "npm install && react-scripts build",
     "test": "react-scripts test",
@@ -26,11 +23,7 @@
     "extends": "react-app"
   },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
+    "production": [">0.2%", "not dead", "not op_mini all"],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
