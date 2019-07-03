@@ -1,4 +1,5 @@
-This is a News App built for fun using React
+This is a News App built for fun using React 
+You can find it live at https://newsappwithreact.netlify.com/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
